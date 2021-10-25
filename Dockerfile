@@ -10,7 +10,7 @@ RUN npm install
 # Build
 WORKDIR /app
 COPY . .
-RUN npm run build
+RUN npm run build && npm cache clean --force && rm -rf app/src
 
 # Application
 FROM node:12-alpine AS application
